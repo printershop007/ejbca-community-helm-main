@@ -1,0 +1,16 @@
+postgresql:
+  enabled: true
+  postgresqlUsername: ejbca
+  postgresqlPassword: ejbca123
+  postgresqlDatabase: ejbca_db
+
+ejbca:
+  database:
+    host: ejbca-postgresql
+    port: 5432
+    username: ejbca
+    password: ejbca123
+    name: ejbca_db
+
+service:
+  type: LoadBalancer
