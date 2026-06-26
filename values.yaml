@@ -115,7 +115,7 @@ services:
   # not recommended, should only be used for debugging purpose
   directHttp:
     enabled: true
-    type: NodePort
+    type: LoadBalancer
     httpPort: 30080
     httpsPort: 30443
   proxyAJP:
@@ -152,7 +152,7 @@ nginx:
   secretInternalNginxCert: "internal-nginx-credential-secret-ca"
   service:
     enabled: false
-    type: NodePort
+    type: LoadBalancer
     httpPort: 30080
     httpsPort: 30443
  
