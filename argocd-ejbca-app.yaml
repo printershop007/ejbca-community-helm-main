@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ejbca
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/printershop007/ejbca-community-helm-main
+    targetRevision: main
+    path: .            # path to Chart.yaml inside repo
+    helm:
+      parameters:
+        - name: service.type
+          value: LoadBalancer
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ejbca
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
